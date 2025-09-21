@@ -1,0 +1,15 @@
+flask==2.3.3
+flask-socketio==5.3.6
+speech-recognition==3.10.0
+faster-whisper==0.10.0
+torch>=2.0.0
+torchaudio>=2.0.0
+numpy>=1.24.0
+noisereduce==3.0.0
+pyttsx3==2.90
+pyautogui>=0.9.54
+pygetwindow>=0.0.9
+psutil>=5.9.0
+winreg; sys_platform == "win32"
+colorama>=0.4.6
+ttkbootstrap>=1.10.1

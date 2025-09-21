@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluto AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" fill="url(#grad1)"/><path d="M12 7c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3z" fill="url(#grad2)"/><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#A020F0;stop-opacity:1" /><stop offset="100%" style="stop-color:#8A2BE2;stop-opacity:1" /></linearGradient><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#DDA0DD;stop-opacity:1" /><stop offset="100%" style="stop-color:#BA55D3;stop-opacity:1" /></linearGradient></defs></svg>
+                <div>
+                    <h1>Pluto AI Assistant</h1>
+                    <p class="subtitle">Voice-First Accessibility Interface</p>
+                </div>
+            </div>
+             <div class="language-switcher">
+                <button class="lang-button active" data-lang="en">English</button>
+                <button class="lang-button" data-lang="ta">தமிழ்</button>
+            </div>
+            <div class="status">Status: <span id="status-text">Connecting...</span></div>
+        </header>
+
+        <main class="main-grid">
+            <div class="conversation-panel panel">
+                <div id="conversation-log"></div>
+                <div class="input-area">
+                    <input type="text" id="message-input" placeholder="Type your command or just speak...">
+                    <button id="send-button" class="icon-button" title="Send Message">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="side-panel">
+                <div class="quick-commands panel">
+                     <div class="command-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a3.375 3.375 0 00-2.684-2.684L11.25 18l1.938-.648a3.375 3.375 0 002.684-2.684L16.25 13.5l.648 1.938a3.375 3.375 0 002.684 2.684L21.75 18l-1.938.648a3.375 3.375 0 00-2.684 2.684z" /></svg>
+                    </div>
+                    <h2>Quick Commands</h2>
+                    <p>Click any command to execute it instantly.</p>
+                </div>
+                <div class="system-control panel">
+                    <h2>System Control</h2>
+                    <div class="command-list">
+                        <a href="#" class="command-item" data-command="open chrome"><strong>Open Chrome</strong><span>Launch the Chrome browser</span></a>
+                        <a href="#" class="command-item" data-command="maximize window"><strong>Maximize Window</strong><span>Make the current window full screen</span></a>
+                        <a href="#" class="command-item" data-command="minimize window"><strong>Minimize Window</strong><span>Hide the current window</span></a>
+                        <a href="#" class="command-item" data-command="take a screenshot"><strong>Take Screenshot</strong><span>Capture the screen</span></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
